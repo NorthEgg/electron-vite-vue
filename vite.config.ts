@@ -4,7 +4,10 @@ import vue from "@vitejs/plugin-vue";
 import electron from "vite-plugin-electron/simple";
 import pkg from "./package.json";
 import vueDevTools from "vite-plugin-vue-devtools";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
   fs.rmSync("dist-electron", { recursive: true, force: true });
@@ -14,6 +17,11 @@ export default defineConfig(({ command }) => {
   const sourcemap = isServe || !!process.env.VSCODE_DEBUG;
 
   return {
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "src"),
+      },
+    },
     plugins: [
       vue(),
       electron({
@@ -40,6 +48,13 @@ export default defineConfig(({ command }) => {
                 external: Object.keys("dependencies" in pkg ? pkg.dependencies : {}),
               },
             },
+            resolve: {
+              alias: {
+                "electron/main": "electron",
+                "electron/renderer": "electron",
+                "electron/common": "electron",
+              },
+            },
           },
         },
         preload: {
@@ -53,6 +68,13 @@ export default defineConfig(({ command }) => {
               outDir: "dist-electron/preload",
               rollupOptions: {
                 external: Object.keys("dependencies" in pkg ? pkg.dependencies : {}),
+              },
+            },
+            resolve: {
+              alias: {
+                "electron/main": "electron",
+                "electron/renderer": "electron",
+                "electron/common": "electron",
               },
             },
           },
