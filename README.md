@@ -1,3 +1,5 @@
+默认开发产生的应用数据在 `%userprofile%\AppData\Roaming\electron-vue-vite`，其中 `electron-vue-vite` 为应用名称(`package.json` 中的 `name`)。打包时如未更改应用名称，则打包后应用数据地址与开发时相同。
+
 # electron-vite-vue
 
 🥳 Really simple `Electron` + `Vue` + `Vite` boilerplate.
