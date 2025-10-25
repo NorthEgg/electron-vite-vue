@@ -6,6 +6,10 @@ import pkg from "./package.json";
 import vueDevTools from "vite-plugin-vue-devtools";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import ElementPlus from "unplugin-element-plus/vite";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // https://vitejs.dev/config/
@@ -85,6 +89,13 @@ export default defineConfig(({ command }) => {
         renderer: {},
       }),
       vueDevTools(),
+      AutoImport({
+        resolvers: [ElementPlusResolver()],
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
+      ElementPlus(),
     ],
     server:
       process.env.VSCODE_DEBUG &&
