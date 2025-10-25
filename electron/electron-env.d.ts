@@ -19,5 +19,7 @@ declare namespace NodeJS {
     APP_ROOT: string;
     /** /dist/ or /public/ */
     VITE_PUBLIC: string;
+    /** 当前可执行文件所在目录 */
+    EXE_PATH: string;
   }
 }

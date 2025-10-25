@@ -10,7 +10,7 @@ const CONFIG: Configuration = {
   electronLanguages: ["zh-CN"],
 
   files: ["dist", "dist-electron"],
-  icon: "public/icon_black.png",
+  icon: "public/favicon.ico",
   electronDownload: {
     cache: "cache/electron",
   },
@@ -22,7 +22,7 @@ const CONFIG: Configuration = {
       },
     ],
     artifactName: "${productName}-Portable-${version}.${ext}",
-    icon: "public/icon_black.png",
+    icon: "public/favicon.ico",
   },
 };
 
