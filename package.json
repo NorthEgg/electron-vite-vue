@@ -20,13 +20,14 @@
   },
   "type": "module",
   "scripts": {
+    "install dependencies": "node .vscode/scripts/init.ts",
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build && electron-builder --config ./electron-builder.config.ts",
+    "build": "node .vscode/scripts/build.ts",
     "preview": "vite preview"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.1",
-    "electron": "^38.4.0",
+    "electron": "38.3.0",
     "electron-builder": "^26.0.12",
     "typescript": "^5.9.3",
     "unplugin-auto-import": "^20.2.0",
@@ -40,6 +41,7 @@
     "vue-tsc": "^3.1.2"
   },
   "dependencies": {
+    "elecrton": "0.0.1-security",
     "element-plus": "^2.11.5"
   }
 }

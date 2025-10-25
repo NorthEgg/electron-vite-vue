@@ -4,7 +4,6 @@ import type { Configuration } from "electron-builder";
 const CONFIG: Configuration = {
   appId: "MyUtils",
   asar: true,
-  productName: "MyUtils",
   directories: {
     output: "release/${version}",
   },
@@ -12,6 +11,9 @@ const CONFIG: Configuration = {
 
   files: ["dist", "dist-electron"],
   icon: "public/icon_black.png",
+  electronDownload: {
+    cache: "cache/electron",
+  },
   win: {
     target: [
       {
