@@ -2,7 +2,7 @@
 import type { Configuration } from "electron-builder";
 
 const CONFIG: Configuration = {
-  appId: "MyUtils",
+  appId: "electron-vue-vite",
   asar: true,
   directories: {
     output: "release/${version}",
